@@ -28,4 +28,5 @@ RUN mkdir -p /app/media
 EXPOSE 8000
 
 # Run gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "ytdownloader.wsgi:application"]
+CMD ["bash", "-lc", "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 --workers 3 ytdownloader.wsgi:application"]
+
