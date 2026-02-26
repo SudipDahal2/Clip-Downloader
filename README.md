@@ -1,8 +1,7 @@
-# YTGrab
+# ClipCatch
 
-YTGrab is a clean, modern web application that allows you to download audio (MP3) or video (MP4) from YouTube. It features a beautiful, responsive UI with real-time download progress tracking, and supports downloading multiple videos simultaneously.
+ClipCatch is a clean, modern web application that allows you to download audio (MP3) or video (MP4) from YouTube. It features a beautiful, responsive UI with real-time download progress tracking, and supports downloading multiple videos simultaneously.
 
-![YT Grab Screenshot](docs/screenshot.png) *(Note: Placeholder for actual screenshot)*
 
 ## Features
 
@@ -104,3 +103,4 @@ While tasks are active, the frontend browser polls the `/tasks/` endpoint every 
 When a download finishes, a **"↓ Save file"** button appears. Clicking it requests the `/serve/<task_id>/` URL.
 - Django's `FileResponse` streams the file from the server directory natively down to the user's local disk as an attachment.
 - Immediately after opening the file for streaming, a daemon thread is started on the server which sleeps for 5 seconds (to allow the stream to finish) and then completely deletes the `media/downloads/<task_id>/` folder, ensuring no storage leaks.
+
