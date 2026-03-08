@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    image: yourdockerhubusername/clip:latest
+    container_name: clip_web
+    ports:
+      - "8000:8000"
+    volumes:
+      - /opt/clip/media:/app/media
+      - /opt/clip/cookies.txt:/app/cookies.txt:ro
+    environment:
+      DEBUG: "0"
+      YTDLP_COOKIE_FILE: /app/cookies.txt
+      YOUTUBE_PLAYER_CLIENT: mweb
+      YOUTUBE_PO_TOKEN: ""
+    restart: always
